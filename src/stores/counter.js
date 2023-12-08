@@ -23,12 +23,22 @@ export default defineStore("counter", {
             this.location = num;
         },
         getWeather() {
-            fetch("https://opendata.cwa.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWB-DCCC3299-0DA4-4054-BA67-B0B6B0942484")
-                .then(res => res.json())
-                .then(data => {
-                    this.weatherInfo = data;
-                    console.log(this.weatherInfo)
-                })
+            window.onload = () => {
+                fetch("https://opendata.cwa.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWB-DCCC3299-0DA4-4054-BA67-B0B6B0942484")
+                    .then(res => res.json())
+                    .then(data => {
+                        this.weatherInfo = data;
+                        console.log(this.weatherInfo)
+                    })
+            }
+
+        },
+        testPra(pra) {
+            if (pra !== "prd") {
+                console.log("xxx")
+            } else {
+                console.log(pra)
+            }
         }
     }
 })

@@ -27,6 +27,78 @@ const router = createRouter({
       name: 'Von',
       component: () => import('../views/Von.vue')
     },
+    {
+      path: '/Vbind',
+      name: 'Vbind',
+      component: () => import('../views/Vbind.vue')
+    },
+    {
+      path: '/VifAndVshow',
+      name: 'VifAndVshow',
+      component: () => import('../views/VifAndVshow.vue')
+    },
+    {
+      path: '/WatchAndComputed',
+      name: 'WatchAndComputed',
+      component: () => import('../views/WatchAndComputed.vue')
+    },
+    {
+      path: '/Props',
+      name: 'Props',
+      component: () => import('../views/Props.vue')
+    },
+    {
+      path: '/Emit',
+      name: 'Emit',
+      component: () => import('../views/Emit.vue')
+    },
+    {
+      path: '/DataFlow',
+      name: 'DataFlow',
+      component: () => import('../views/DataFlow.vue')
+    },
+    {
+      path: '/ProvideAndInject',
+      name: 'ProvideAndInject',
+      component: () => import('../views/ProvideAndInject.vue')
+    },
+    {
+      path: '/User/:userId',
+      name: 'User',
+      component: () => import('../views/User.vue'),
+      props: true
+    },
+    {
+      path: '/RouteFam',
+      name: 'RouteFam',
+      component: () => import('../views/RouteFam.vue'),
+      children: [
+        {
+          path: 'RouteChild1',
+          component: () => import('../components/RouteChild1.vue'),
+          
+        },
+        {
+          path: 'RouteChild2',
+          component: () => import('../components/RouteChild2.vue')
+        },
+        {
+          path:"bootstrapNote",
+          component:()=> import('../components/BootstrapNote.vue'),
+          alias:''
+        }
+      ]
+    },
+    {
+      path:"/Vslot",
+      name:"Vslot",
+      component:() => import('../views/Vslot.vue')
+    },
+    {
+      path: "/:pathMatch(.*)*",
+      name: "NotFound",
+      component: () => import('../views/NotFound.vue')
+    },
 
   ]
 })

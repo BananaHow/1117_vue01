@@ -26,7 +26,10 @@ export default {
         }
     },
     methods:{
-        ...mapActions(counter, ["getWeather"])
+        ...mapActions(counter, ["getWeather","setLocation"])
+    },
+    mounted(){
+        this.setLocation(3)
     }
 }
 </script>

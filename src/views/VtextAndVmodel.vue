@@ -21,15 +21,18 @@ export default {
     },
     methods:{
         ...mapActions(counter, ["getLocation", "setLocation","getWeather"])
+    },
+    mounted(){
+        this.setLocation(2)
     }
 
 }
 </script>
 
 <template>
-    <button type="button" @click="getLocation">BTN1</button>
+    <!-- <button type="button" @click="getLocation">BTN1</button>
     <button type="button" @click="setLocation(2)">BTN2</button>
-    <button type="button" @click="getWeather">Weather</button>
+    <button type="button" @click="getWeather">Weather</button> -->
     <h1>{{ this.title }}</h1>
     <!-- V-text -->
     <h2>V-text</h2>

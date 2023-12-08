@@ -1,15 +1,18 @@
 <script>
+import { mapState, mapActions } from 'pinia'
+import counter from '../stores/counter'
 export default {
     data() {
         return {
             title: "",
             text: "",
-            firstName:"Foo",
-            lastName:"Bar",
-            cool:""
+            firstName: "Foo",
+            lastName: "Bar",
+            cool: ""
         }
     },
     methods: {
+        ...mapActions(counter, ["setLocation"]),
         print() {
             console.log("btn")
             this.title = "btn";
@@ -25,8 +28,11 @@ export default {
             this.$router.push('/Vfor')
         }
     },
-    computed:{
-
+    computed: {
+        ...mapState(counter, ["weatherInfo"])
+    },
+    mounted() {
+        this.setLocation(4)
     }
 }
 </script>
@@ -48,7 +54,7 @@ export default {
         <i class="fa-solid fa-arrow-up"></i>
     </button>
 
-    <p>{{ this.cool }}</p>
+    <p>{{ this.weatherInfo }}</p>
 </template>
 
 <style scoped lang="scss">
